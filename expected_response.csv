@@ -1,0 +1,11 @@
+User Query,Expected Response
+"I'm looking for a condo with a fitness center, sauna, and a price below 25,000 baht.","{ ""fitness"": true, ""sauna"": true, ""price"": ""< 25000"" }"
+"Do you have properties with Wi-Fi, laundry facilities, and parking?","{ ""wifi"": true, ""laundry"": true, ""parking"": true }"
+"I want a place with a jacuzzi, shuttle service, and pets allowed.","{ ""jacuzzi"": true, ""shuttle"": true, ""allowPet"": true }"
+"Show me listings with a pool, security services, and a restaurant.","{ ""pool"": true, ""security"": true, ""restaurant"": true }"
+"Looking for a condo with keycard access and a price less than 18,000 baht.","{ ""keycard"": true, ""price"": ""< 18000"" }"
+"I need a property with a sauna, fitness center, and a price below 30,000 baht.","{ ""sauna"": true, ""fitness"": true, ""price"": ""< 30000"" }"
+"Are there any properties with a shuttle service and Wi-Fi?","{ ""shuttle"": true, ""wifi"": true }"
+"I want a condo with parking, pool, and Wi-Fi, priced under 15,000 baht.","{ ""parking"": true, ""pool"": true, ""wifi"": true, ""price"": ""< 15000"" }"
+"Show me properties with a restaurant, pets allowed, and security services.","{ ""restaurant"": true, ""allowPet"": true, ""security"": true }"
+"I need a place with laundry facilities, keycard access, and a fitness center.","{ ""laundry"": true, ""keycard"": true, ""fitness"": true }"
