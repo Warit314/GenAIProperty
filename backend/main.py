@@ -5,7 +5,7 @@ from langchain_core.output_parsers import JsonOutputParser
 from backend.Prompt import Prompt
 import sqlite3
 import logging
-
+import json
 
 logging.basicConfig(level=logging.DEBUG)
 #Default model
@@ -22,6 +22,22 @@ llm = VLLMOpenAI(
     max_tokens=4096,
     callbacks=[StreamingStdOutCallbackHandler()]
 )
+
+
+query_former_llm = VLLMOpenAI(
+    
+    openai_api_key="EMPTY",
+    openai_api_base="http://localhost:8000/v1",
+    model_name="/root/.cache/huggingface/hub/gemma-2b-it",
+    streaming=True,
+    temperature=0.0,
+    top_p= 0.1,
+    # top_k=0.1,
+    verbose=True,
+    max_tokens=2000,
+    callbacks=[StreamingStdOutCallbackHandler()]
+)
+
 
 #schema
 schema={
@@ -48,6 +64,7 @@ class Controllers():
     @staticmethod
     async def generate_response(message,query_result=None):
         if query_result:
+
             prompt = PromptTemplate(input_variables=["message"], template=Prompt.gemini_prompt_answer)
 
             chain= prompt | llm
@@ -63,7 +80,7 @@ class Controllers():
 
         prompt = PromptTemplate(input_variables=["message"], template=Prompt.gemini_prompt_query)
 
-        chain= prompt | llm | parser
+        chain= prompt | query_former_llm | parser
 
         result = chain.invoke({"message": message})
         
@@ -114,7 +131,7 @@ class Controllers():
         if property_dict["restaurant"]:
             query += f" AND restaurant = {property_dict['restaurant']}"
 
-        query+=" LIMIT 4"
+        query+=" LIMIT 3"
 
         logging.debug(f"QUERY : {query}")
 
