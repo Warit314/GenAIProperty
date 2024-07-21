@@ -1,6 +1,7 @@
 # Inspiration
-Property Chatbot- I decided to do project about finding condo since i was recently finding one. The user pain point is having through scroll through a lot of facebook post or the web to find an actually good condo.
-Another problem ( I'm not sure how  to solve it yet.) is Property Agent seems to not updating their post so most of the property on the website is likely already rented. Having realize this problem - i think it would be easier to visualize where each condo is and Since i don't want to read through hundreds of post. I created an LLM to read for me instead
+- A Property Chatbot- I decided to do project about finding condo since i was recently finding one.
+- The user pain point is having through scroll through a lot of facebook post or the web to find an actually good condo.
+- Another problem ( I'm not sure how  to solve it yet.) is Property Agent seems to not updating their post so most of the property on the website is likely already rented. Having realize this problem - i think it would be easier to visualize where each condo is and Since i don't want to read through hundreds of post. I created an LLM to read for me instead
 
 # Installation
 this project use vllm for text-embedding and fast inferencing.
