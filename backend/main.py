@@ -17,9 +17,10 @@ llm = VLLMOpenAI(
     openai_api_base="http://model:8000/v1",
     model_name="/root/.cache/huggingface/hub/gemma-2b-it",
     streaming=True,
-    temperature=0.0,
+    temperature=0.6,
     verbose=True,
-    max_tokens=4096,
+    frequency_penalty=0.5,
+    max_tokens=3000,
     callbacks=[StreamingStdOutCallbackHandler()]
 )
 
@@ -31,6 +32,7 @@ query_former_llm = VLLMOpenAI(
     streaming=True,
     temperature=0.0,
     top_p= 0.1,
+    frequency_penalty=0.0,
     # top_k=0.1,
     verbose=True,
     max_tokens=2000,

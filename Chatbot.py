@@ -55,7 +55,7 @@ def plot_map(df):
 def ask_chatbot(prompt, response):
     chatbot_payload = {
         "message": prompt,
-        "query_result": json.dumps(response, ensure_ascii=False)
+        "query_result": json.dumps(response, indent=3,ensure_ascii=False)
     }
     with requests.post(f"{base_api_url}/chat_bot", json=chatbot_payload, stream=True) as response:
         if response.status_code == 200:
