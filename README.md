@@ -22,7 +22,8 @@ Since this is POC i use sqlite for the database.
 Basically i use langchain and VLLM to use the model to generate a SQL query to find details about the property. Using Fast API as Api endpoints and fetch the data through the frontend using streamlit (for rapid development) 
 
 The reason i choose SQL query because the volume of the data, RAG is more suitable to use with books and other type of data.
-
+# Encountered Problem:
+Mostly suffers from Model generation flaws, in creating JSON query.
 # Additional notes - Design flaw -Limitation
 - *the query generation is very limited due to limitation from my gpus (RTX2060) I don't have bigger vram to server bigger model So i choose to only use gemma 2b it*
 - *Since i have no api for the real data, I don't have data of nearest BTS, MRT or distance to them. This is the biggest flaw in my project, which led to the potential search for only the name of the condo. Where the user already know which condo do they want*
