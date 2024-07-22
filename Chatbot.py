@@ -6,7 +6,7 @@ import json
 import uuid
 
 # Define the API endpoint
-base_api_url = "http://127.0.0.1:8001"
+base_api_url = "http://uvicorn:8001"
 
 # Title and caption
 st.title("💬 Property Chatbot")

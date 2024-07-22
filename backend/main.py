@@ -14,7 +14,7 @@ logging.basicConfig(level=logging.DEBUG)
 llm = VLLMOpenAI(
     
     openai_api_key="EMPTY",
-    openai_api_base="http://localhost:8000/v1",
+    openai_api_base="http://model:8000/v1",
     model_name="/root/.cache/huggingface/hub/gemma-2b-it",
     streaming=True,
     temperature=0.0,
@@ -23,11 +23,10 @@ llm = VLLMOpenAI(
     callbacks=[StreamingStdOutCallbackHandler()]
 )
 
-
 query_former_llm = VLLMOpenAI(
     
     openai_api_key="EMPTY",
-    openai_api_base="http://localhost:8000/v1",
+    openai_api_base="http://model:8000/v1",
     model_name="/root/.cache/huggingface/hub/gemma-2b-it",
     streaming=True,
     temperature=0.0,

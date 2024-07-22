@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  uvicorn:
+    build:
+      context: .
+      dockerfile: Uvicorn.Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - "8001:8001"
+    depends_on:
+      - model
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Streamlit.Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - "8501:8501"
+    depends_on:
+      - uvicorn
+      - model
+
+  model:
+    image: vllm/vllm-openai:latest
+    environment:
+      - HUGGING_FACE_HUB_TOKEN=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
+    volumes:
+      - C:\Users\Warit\.cache\huggingface:/root/.cache/huggingface
+    ports:
+      - "8000:8000"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: "nvidia"
+              count: all
+              capabilities: [gpu]
+    ipc: host
+    command: [
+      "--model", "/root/.cache/huggingface/hub/gemma-2b-it",
+      "--dtype", "half"
+    ]
