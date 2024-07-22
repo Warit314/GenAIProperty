@@ -27,7 +27,7 @@ services:
   model:
     image: vllm/vllm-openai:latest
     environment:
-      - HUGGING_FACE_HUB_TOKEN=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
+      - HUGGING_FACE_HUB_TOKEN=<<YOUR HUGGING FACE TOKEN>>
     volumes:
       - C:\Users\Warit\.cache\huggingface:/root/.cache/huggingface
     ports:
