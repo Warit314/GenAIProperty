@@ -10,7 +10,9 @@ Since my pc is windows and vllm require linux. i need to run it through WSL so:
 docker pull vllm/vllm-openai:latest
 ```
 you can use my docker compose file to start the deploying the model and start my backend and frontend
-
+```
+docker compose up --build
+```
 *note that this use huggingface token please replace with yours*
 
 The project is intended to be a prove of concept to use llm to generate SQL query.
