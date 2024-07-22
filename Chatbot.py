@@ -94,10 +94,14 @@ def fetch_map_data():
 def main():
     df = fetch_map_data()
     if df is not None:
+
+
         selected_property = st.sidebar.selectbox(
-            'Select a property to ask AI or Search Through LLM:',
+            'Select a property to ask AI or Search Through LLM: (You must select the data through the side bar here, map is just for illustration purpose)',
             df['NAME']
         )
+        st.sidebar.write("Toggle this to search through LLM!")
+        st.sidebar.caption("*LLM write json to query the database*")
         search_through_llm = st.sidebar.toggle("Search Through LLM")  # Fixed from toggle to checkbox
         
         if selected_property and not search_through_llm:
